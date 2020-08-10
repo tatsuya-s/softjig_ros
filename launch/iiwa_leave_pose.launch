@@ -1,26 +1,36 @@
 <?xml version="1.0"?>
 <launch>
+    <node pkg="rostopic" type="rostopic" name="joint_pub"
+          args="pub /iiwa/command/JointPosition iiwa_msgs/JointPosition
+          '{header: auto, position: {a1: -0.918, a2: 1.082, a3: -1.738, a4: 1.320, a5: 0.523, a6: -1.218, a7: -1.599}}' -1"/>
+<!-- plate ─┘ -->
 <!--
     <node pkg="rostopic" type="rostopic" name="joint_pub"
           args="pub /iiwa/command/JointPosition iiwa_msgs/JointPosition
           '{header: auto, position: {a1: -0.918, a2: 1.082, a3: -1.738, a4: 1.320, a5: 0.523, a6: -1.218, a7: -1.599}}' -1"/>
 -->
+<!-- plate L -->
 <!--
     <node pkg="rostopic" type="rostopic" name="joint_pub"
           args="pub /iiwa/command/JointPosition iiwa_msgs/JointPosition
           '{header: auto, position: {a1: -0.956, a2: 1.163, a3: -1.738, a4: 1.332, a5: 0.454, a6: -1.244, a7: -1.629}}' -1"/>
 -->
+<!-- plate へ -->
 <!--
     <node pkg="rostopic" type="rostopic" name="joint_pub"
           args="pub /iiwa/command/JointPosition iiwa_msgs/JointPosition
           '{header: auto, position: {a1: -0.961, a2: 1.107, a3: -1.738, a4: 1.411, a5: 0.517, a6: -1.182, a7: -1.653}}' -1"/>
 -->
+<!-- motor ┤ -->
 <!--
     <node pkg="rostopic" type="rostopic" name="joint_pub"
           args="pub /iiwa/command/JointPosition iiwa_msgs/JointPosition
           '{header: auto, position: {a1: -0.944, a2: 1.117, a3: -1.738, a4: 1.385, a5: 0.504, a6: -1.188, a7: -1.642}}' -1"/>
 -->
+<!-- motor ┴ -->
+<!--
     <node pkg="rostopic" type="rostopic" name="joint_pub"
           args="pub /iiwa/command/JointPosition iiwa_msgs/JointPosition
           '{header: auto, position: {a1: -0.977, a2: 1.164, a3: -1.738, a4: 1.254, a5: 0.442, a6: -1.335, a7: -1.594}}' -1"/>
+-->
 </launch>
