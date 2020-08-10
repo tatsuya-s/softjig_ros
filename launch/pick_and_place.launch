@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<launch>
+<!--
+    <include file="$(find softjig_ros)/launch/rs_camera.launch"/>
+-->
+    <include file="$(find softjig_ros)/launch/robotiq_hand_controller.launch"/>
+    <include file="$(find softjig_ros)/launch/iiwa_initialize.launch"/>
+    <include file="$(find softjig_ros)/launch/robotiq_hand_reset.launch"/>
+    <include file="$(find pigpio_controller)/launch/remote.launch"/>
+    <include file="$(find softjig_ros)/launch/softjig_free.launch"/>
+
+    <node pkg="rosbag" type="record" name="rosbag_record"
+            args="-o $(find softjig_ros)/bag/grasp_exp
+                /external_camera/color/image_raw/compressed
+                /Robotiq2FGripperRobotOutput
+                /iiwa/state/JointTorque"/>
+
+    <include file="$(find timed_roslaunch)/launch/timed_roslaunch.launch">
+        <arg name="time" value="3"/>
+        <arg name="pkg" value="softjig_ros"/>
+        <arg name="file" value="iiwa_pick_pose.launch"/>
+        <arg name="node_name" value="iiwa_pick_pose_3"/>
+    </include>
+
+    <include file="$(find timed_roslaunch)/launch/timed_roslaunch.launch">
+        <arg name="time" value="5"/>
+        <arg name="pkg" value="softjig_ros"/>
+        <arg name="file" value="robotiq_hand_close.launch"/>
+        <arg name="node_name" value="robotiq_hand_close_5"/>
+    </include>
+
+    <include file="$(find timed_roslaunch)/launch/timed_roslaunch.launch">
+        <arg name="time" value="7"/>
+        <arg name="pkg" value="softjig_ros"/>
+        <arg name="file" value="iiwa_initialize.launch"/>
+        <arg name="node_name" value="iiwa_initialize_7"/>
+    </include>
+
+    <include file="$(find timed_roslaunch)/launch/timed_roslaunch.launch">
+        <arg name="time" value="9"/>
+        <arg name="pkg" value="softjig_ros"/>
+        <arg name="file" value="iiwa_place_pose.launch"/>
+        <arg name="node_name" value="iiwa_place_pose_9"/>
+    </include>
+
+    <include file="$(find timed_roslaunch)/launch/timed_roslaunch.launch">
+        <arg name="time" value="14"/>
+        <arg name="pkg" value="softjig_ros"/>
+        <arg name="file" value="iiwa_push_pose.launch"/>
+        <arg name="node_name" value="iiwa_push_pose_14"/>
+    </include>
+
+    <include file="$(find timed_roslaunch)/launch/timed_roslaunch.launch">
+        <arg name="time" value="17"/>
+        <arg name="pkg" value="softjig_ros"/>
+        <arg name="file" value="softjig_jam.launch"/>
+        <arg name="node_name" value="softjig_jam_17"/>
+    </include>
+
+    <include file="$(find timed_roslaunch)/launch/timed_roslaunch.launch">
+        <arg name="time" value="20"/>
+        <arg name="pkg" value="softjig_ros"/>
+        <arg name="file" value="robotiq_hand_open.launch"/>
+        <arg name="node_name" value="robotiq_hand_open_20"/>
+    </include>
+
+    <include file="$(find timed_roslaunch)/launch/timed_roslaunch.launch">
+        <arg name="time" value="21"/>
+        <arg name="pkg" value="softjig_ros"/>
+        <arg name="file" value="iiwa_leave_pose.launch"/>
+        <arg name="node_name" value="iiwa_leave_pose_21"/>
+    </include>
+
+    <include file="$(find timed_roslaunch)/launch/timed_roslaunch.launch">
+        <arg name="time" value="30"/>
+        <arg name="pkg" value="softjig_ros"/>
+        <arg name="file" value="iiwa_initialize.launch"/>
+        <arg name="node_name" value="iiwa_initialize_30"/>
+    </include>
+
+    <include file="$(find timed_roslaunch)/launch/timed_roslaunch.launch">
+        <arg name="time" value="30"/>
+        <arg name="pkg" value="softjig_ros"/>
+        <arg name="file" value="softjig_free.launch"/>
+        <arg name="node_name" value="softjig_free_30"/>
+    </include>
+
+</launch>

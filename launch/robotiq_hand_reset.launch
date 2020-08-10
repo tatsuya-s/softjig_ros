@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+    <node pkg="rostopic" type="rostopic" name="reset_gripper"
+          args="pub /Robotiq2FGripperRobotOutput robotiq_2f_gripper_control/Robotiq2FGripper_robot_output
+          '{rACT: 0, rGTO: 0, rATR: 0, rPR: 0, rSP: 0, rFR: 0}' -1"/>
+</launch>
