@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+    <node pkg="rostopic" type="rostopic" name="joint_pub"
+          args="pub /iiwa/command/JointPosition iiwa_msgs/JointPosition 
+          '{header: {seq: 0, stamp: {secs: 0, nsecs: 0}, frame_id: ''},
+            position: {a1: -1.57, a2: 1.57, a3: 0.0, a4: 0.0, a5: 0.0, a6: 0.0, a7: 0.0}}' -1"/>
+</launch>

@@ -2,35 +2,80 @@
 <launch>
     <node pkg="rostopic" type="rostopic" name="joint_pub"
           args="pub /iiwa/command/JointPosition iiwa_msgs/JointPosition
-          '{header: auto, position: {a1: -0.803, a2: 1.770, a3: -1.738, a4: 1.412, a5: -0.030, a6: -0.943, a7: -1.810}}' -1"/>
+          '{header: auto, position: {a1: -0.852, a2: 1.768, a3: -1.738, a4: 1.396, a5: -0.041, a6: -1.008, a7: -1.803}}' -1"/>
 <!-- plate ─┘ -->
 <!--
     <node pkg="rostopic" type="rostopic" name="joint_pub"
           args="pub /iiwa/command/JointPosition iiwa_msgs/JointPosition
           '{header: auto, position: {a1: -0.803, a2: 1.770, a3: -1.738, a4: 1.412, a5: -0.030, a6: -0.943, a7: -1.810}}' -1"/>
+  position:
+    x: 0.600044985211
+    y: 0.200015056835
+    z: -0.0651290874808
+  orientation:
+    x: 0.707619011402
+    y: 0.706593978951
+    z: -4.95588310012e-05
+    w: -0.000559073494388
 -->
 <!-- plate L -->
 <!--
     <node pkg="rostopic" type="rostopic" name="joint_pub"
           args="pub /iiwa/command/JointPosition iiwa_msgs/JointPosition
           '{header: auto, position: {a1: -0.811, a2: 1.770, a3: -1.738, a4: 1.410, a5: -0.032, a6: -0.953, a7: -1.809}}' -1"/>
+  position:
+    x: 0.599996216066
+    y: 0.199921029886
+    z: -0.0595575507652
+  orientation:
+    x: 0.707548379898
+    y: 0.706664593555
+    z: 3.15837832767e-06
+    w: -0.000663139703775
 -->
 <!-- plate へ -->
 <!--
     <node pkg="rostopic" type="rostopic" name="joint_pub"
           args="pub /iiwa/command/JointPosition iiwa_msgs/JointPosition
           '{header: auto, position: {a1: -0.801, a2: 1.770, a3: -1.738, a4: 1.412, a5: -0.030, a6: -0.941, a7: -1.811}}' -1"/>
+  position:
+    x: 0.600143768345
+    y: 0.199989064701
+    z: -0.0663512381527
+  orientation:
+    x: 0.70720988512
+    y: 0.707003488588
+    z: -0.000258256935412
+    w: -0.000455632759056
 -->
 <!-- motor ┤ -->
 <!--
     <node pkg="rostopic" type="rostopic" name="joint_pub"
           args="pub /iiwa/command/JointPosition iiwa_msgs/JointPosition
           '{header: auto, position: {a1: -0.810, a2: 1.770, a3: -1.738, a4: 1.410, a5: -0.032, a6: -0.952, a7: -1.809}}' -1"/>
+  position:
+    x: 0.600041803897
+    y: 0.199900456674
+    z: -0.0602031696476
+  orientation:
+    x: 0.707531034946
+    y: 0.70668199729
+    z: -0.000129296582038
+    w: -0.000632450479527
 -->
 <!-- motor ┴ -->
 <!--
     <node pkg="rostopic" type="rostopic" name="joint_pub"
           args="pub /iiwa/command/JointPosition iiwa_msgs/JointPosition
           '{header: auto, position: {a1: -0.852, a2: 1.768, a3: -1.738, a4: 1.396, a5: -0.041, a6: -1.008, a7: -1.803}}' -1"/>
+  position:
+    x: 0.599792390492
+    y: 0.199997725019
+    z: -0.0300578102788
+  orientation:
+    x: 0.707498371601
+    y: 0.706714139457
+    z: -1.78210142654e-05
+    w: -0.00108417302397
 -->
 </launch>

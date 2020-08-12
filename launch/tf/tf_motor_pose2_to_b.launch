@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<launch>
+    <node pkg="tf2_ros" type="static_transform_publisher" name="pick_pose_broadcaster"          args="0.600 0.200 -0.030 0.707 0.707 0 0 iiwa_link_0 iiwa_pick_pose"/>
+    <node pkg="tf2_ros" type="static_transform_publisher" name="place_pose_broadcaster"         args="0.554 0.517  0.210 0.707 0.707 0 0 iiwa_link_0 iiwa_place_pose"/>
+    <node pkg="tf2_ros" type="static_transform_publisher" name="push_pose_broadcaster"          args="0.554 0.517  0.143 0.707 0.707 0 0 iiwa_link_0 iiwa_push_pose"/>
+    <node pkg="tf2_ros" type="static_transform_publisher" name="capture_pose_broadcaster"       args="0.604 0.517  0.343 0.707 0.707 0 0 iiwa_link_0 iiwa_capture_pose"/>
+    <node pkg="tf2_ros" type="static_transform_publisher" name="grapple_start_pose_broadcaster" args="0.554 0.517  0.138 1 0 0 0 iiwa_link_0 iiwa_grapple_start_pose"/>
+    <node pkg="tf2_ros" type="static_transform_publisher" name="grapple_end_pose_broadcaster"   args="0.624 0.517  0.138 1 0 0 0 iiwa_link_0 iiwa_grapple_end_pose"/>
+</launch>

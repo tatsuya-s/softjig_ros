@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<launch>
+<!--
+    <node pkg="rosbag" type="record" name="rosbag_record"
+            args="-o $(find softjig_ros)/bag/grasp_exp
+                /external_camera/color/image_raw/compressed
+                /gripper/output
+                /iiwa/state/JointTorque"/>
+-->
+
+    <include file="$(find softjig_ros)/launch/robotiq_hand_controller.launch"/>
+    <include file="$(find pigpio_controller)/launch/remote.launch"/>
+    <node pkg="rosservice" type="rosservice" name="softjig_free" args="call --wait /control_pin true"/>
+    <node pkg="rostopic" type="rostopic" name="open_gripper" args="pub /gripper/output robotiq_2f_gripper_control/Robotiq2FGripper_robot_output '{rACT: 1, rGTO: 1, rATR: 0, rPR: 0, rSP: 100, rFR: 100}' -1"/>
+
+    <node pkg="softjig_ros" type="softjig_controller_node" name="softjig_controller_node" respawn="false" output="screen">
+        <rosparam param="initial_joints">[-1.036, 1.735, -1.738, 0.968, -0.054, -1.619, -1.801]</rosparam>
+    </node>
+</launch>
