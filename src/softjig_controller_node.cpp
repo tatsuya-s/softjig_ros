@@ -226,9 +226,9 @@ class Controller {
             CapturedInitialPose,
             MovedToGrapple,
             Grappled,
-            LeavedToCaptureGrappledPose,
-            FreedUpObject,
-            MovedToEnd
+            LeavedToCaptureFinalPose,
+            CapturedFinalPose,
+            FreedUpObject
         };
 
         robot iiwa;
@@ -337,16 +337,12 @@ int main(int argc, char **argv) {
                 ROS_INFO("Rotate flange");
                 geometry_msgs::PoseStamped current_pose = controller.iiwa.getPose();
                 geometry_msgs::PoseStamped target_pose = controller.iiwa.getPose("iiwa_grapple_start_pose");
-                //target_pose.pose.position.x = (current_pose.pose.position.x + target_pose.pose.position.x) / 2.0;
-                //target_pose.pose.position.y = (current_pose.pose.position.y + target_pose.pose.position.y) / 2.0;
                 target_pose.pose.position.z = (current_pose.pose.position.z + target_pose.pose.position.z) / 2.0;
                 controller.iiwa.setPose(target_pose);
                 break;
             }
             case Controller::CapturedInitialPose:
             {
-                ROS_INFO("Capture");
-                controller.realsense.capture();
                 ROS_INFO("Move to grapple object");
                 geometry_msgs::PoseStamped pose_stamped = controller.iiwa.getPose("iiwa_grapple_start_pose");
                 controller.iiwa.setPose(pose_stamped);
@@ -366,22 +362,19 @@ int main(int argc, char **argv) {
                 controller.iiwa.setPose(pose_stamped);
                 break;
             }
-            case Controller::LeavedToCaptureGrappledPose:
+            case Controller::LeavedToCaptureFinalPose:
             {
                 ROS_INFO("Capture");
                 controller.realsense.capture();
+                break;
+            }
+            case Controller::CapturedFinalPose:
+            {
                 ROS_INFO("Free up object");
                 controller.jig.free();
                 break;
             }
             case Controller::FreedUpObject:
-            {
-                ROS_INFO("Move to end");
-                //iiwa_msgs::JointPosition joint_position = controller.iiwa.getInitialPosition();
-                //controller.iiwa.setPosition(joint_position);
-                break;
-            }
-            case Controller::MovedToEnd:
             {
                 ROS_INFO("Done");
                 break;
@@ -389,12 +382,7 @@ int main(int argc, char **argv) {
             default:
             {
                 ros::shutdown();
-
-                //ROS_INFO("What's the next move?");
-                //char key;
-                //std::cin >> key;
-                //controller.resetStep();
-                //continue;
+                break;
             }
         }
 
